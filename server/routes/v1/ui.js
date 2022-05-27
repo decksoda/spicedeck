@@ -28,7 +28,11 @@ export default async function(ctx) {
       Your password is your normal password.<br><br>
       Username: <input id="username"></input><br>
       Password: <input id="password" type="password"></input><br><br>
-      <button onclick="login()">Log In to Spotify</button>
+      <button onclick="login()">Log In to Spotify</button><br<br>
+      <h4>Other Settings</h4>
+      <button onclick="restartSpotify()">Restart</button><br>
+      <button onclick="stopSpotify()">Stop</button><br>
+      <button onclick="startSpotify()">Start</button>
     </html>
     <script>
       async function login() {
@@ -38,6 +42,18 @@ export default async function(ctx) {
           });
 
           document.body.innerHTML = "Logged in.";
+      }
+
+      async function restartSpotify() {
+        await axios.post("/api/v1/restartSpotify");
+      }
+
+      async function stopSpotify() {
+        await axios.post("/api/v1/stopSpotify");
+      }
+
+      async function startSpotify() {
+        await axios.post("/api/v1/startSpotify");
       }
     </script>
     `

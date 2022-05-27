@@ -146,4 +146,19 @@ device_type = "computer"`
 
     this.init();
   },
+  async stopSpotifyd() {
+    konsole.log("Stopping Spotifyd...");
+
+    const process = Deno.run({
+      cmd: ["killall", "spotifyd"],
+      stdout: "piped",
+      stderr: "piped",
+    });
+
+    await process.status();
+  },
+  async startSpotifyd() {
+    konsole.log("Starting Spotifyd...");
+    this.init();
+  }
 };
