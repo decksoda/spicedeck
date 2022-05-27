@@ -121,7 +121,7 @@ backend = "alsa"
 device = "default"
 control = "default"
 
-mixer = "PCM"
+mixer = "Master"
 
 volume_controller = "alsa"
     

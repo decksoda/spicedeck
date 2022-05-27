@@ -37,8 +37,8 @@ export default async function(ctx) {
     <script>
       async function login() {
           await axios.post("/api/v1/setSpotifyConfig", {
-              "username": document.getElementById("username"),
-              "password": document.getElementById("password")
+              "username": document.getElementById("username").value,
+              "password": document.getElementById("password").value
           });
 
           document.body.innerHTML = "Logged in.";
