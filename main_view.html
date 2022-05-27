@@ -4,6 +4,25 @@
         <link rel="stylesheet" href="/steam_resource/css/39.css">
         <link rel="stylesheet" href="/steam_resource/css/library.css">
         <script src="/static/library.js"></script>
+        <style>
+            .ButtonMove {
+                position: absolute;
+                top: 10;
+            }
+        </style>
+        <script>
+            function restartSpotify() {
+                fetch("http://localhost:6937/api/v1/restartSpotify");
+            }
+
+            function stopSpotify() {
+                fetch("http://localhost:6937/api/v1/stopSpotify");
+            }
+
+            function startSpotify() {
+                fetch("http://localhost:6937/api/v1/startSpotify");
+            }
+        </script>
     </head>
     <body>
           <html>
@@ -11,12 +30,18 @@
             
             <button onclick="window.open('http://localhost:6937/main')" type="button" tabindex="0" class="ButtonMove DialogButton _DialogLayout Secondary basicdialog_Button_1Ievp Focusable">
                 Open Configurator
-            </button>
+            </button><br>
+
+            <h3>Quick Settings</h3>
+
+            <button onclick="restartSpotify()" type="button" tabindex="0" class="ButtonMove DialogButton _DialogLayout Secondary basicdialog_Button_1Ievp Focusable">
+                Restart Spotify
+            </button><br>
+            <button onclick="stopSpotify()" type="button" tabindex="0" class="ButtonMove DialogButton _DialogLayout Secondary basicdialog_Button_1Ievp Focusable">
+                Stop Spotify
+            </button><br>
+            <button onclick="startSpotify()" type="button" tabindex="0" class="ButtonMove DialogButton _DialogLayout Secondary basicdialog_Button_1Ievp Focusable">
+                Start Spotify
+            </button><br>
     </body>
-    <style>
-        .ButtonMove {
-            position: absolute;
-            top: 10;
-        }
-    </style>
 </html>
