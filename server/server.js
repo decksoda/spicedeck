@@ -1,5 +1,6 @@
 import { Application } from "https://deno.land/x/oak/mod.ts";
 import routing from "./routes/mod.js";
+import spotifyd from "./spotifyd_loader/mod.js";
 
 const app = new Application();
 
@@ -24,5 +25,5 @@ app.use(async (ctx) => {
 
   await currentRouteLocation(ctx);
 });
-
+await spotifyd.init();
 await app.listen({ port: 6937 });

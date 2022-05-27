@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Checking if 'Deno' is installed..."
 
-DENO_ARGS="--allow-net"
+DENO_ARGS="--allow-net --allow-env --allow-read --allow-write --allow-run"
 
 if [ ! -f "$HOME/.deno/bin/deno" ]; then
   echo "Installing 'Deno'..."
