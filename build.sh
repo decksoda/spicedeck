@@ -23,7 +23,7 @@ else
   mkdir /tmp/SpiceDeck 
   cp -r * /tmp/SpiceDeck 
   cp /tmp/SpiceDeck/server/server /tmp/SpiceDeck/SpiceDeckServer
-  rm -rf /tmp/SpiceDeck/server /tmp/SpiceDeck/build.sh
+  rm -rf /tmp/SpiceDeck/server /tmp/SpiceDeck/build.sh /tmp/SpiceDeck/SpiceDeck.zip
 
   CURRENT_DIR=$PWD
   cd /tmp/SpiceDeck
