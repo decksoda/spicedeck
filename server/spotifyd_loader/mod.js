@@ -107,25 +107,29 @@ export default {
   async setupLogin(username, password) {
     konsole.log("Initializing configuration...");
 
-    Deno.mkdir(Deno.env.get("HOME") + "/.config/spotifyd");
-    Deno.writeTextFile(Deno.env.get("HOME") + "/.config/spotifyd/spotifyd.conf", `
-    [global]
-    username = ${username}
-    password = ${password}
+    if (!existsSync(Deno.env.get("HOME") + "/.config/spotifyd")) {
+        Deno.mkdir(Deno.env.get("HOME") + "/.config/spotifyd");
+    }
 
-    backend = "alsa"
-    device = "default"
-    control = "default"
+    Deno.writeTextFile(
+      Deno.env.get("HOME") + "/.config/spotifyd/spotifyd.conf",
+`[global]
+username = "${username}"
+password = "${password}"
 
-    mixer = "PCM"
+backend = "alsa"
+device = "default"
+control = "default"
 
-    volume_controller = "alsa"
+mixer = "PCM"
+
+volume_controller = "alsa"
     
-    bitrate = 160
-    initial_volume = 70
+bitrate = 160
+initial_volume = "70"
 
-    device_type = "computer"
-    `);
+device_type = "computer"`
+    );
 
     konsole.log("Initialized.");
   },
